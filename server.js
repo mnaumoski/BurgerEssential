@@ -45,6 +45,8 @@ app.get('/', function(req,res) {
     });
 });
 
+
+
 app.post('/create', function(req,res){
     connection.query('INSERT INTO burgers (burger) VALUES (?)', [req.body.burger], function(err, result) {
       if (err) throw err;
@@ -61,7 +63,7 @@ app.delete('/delete', function(req,res){
 
 app.put('/update', function(req,res){
 
-    connection.query('UPDATE burgers SET burger = ? WHERE id = ?', [req.body.burger, req.body.id], function(err, result) {
+    connection.query('UPDATE burgers SET devoured = true WHERE burger = ?', [req.body.burger], function(err, result) {
       if (err) throw err;
       res.redirect('/');
     });
