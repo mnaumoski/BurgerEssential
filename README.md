@@ -5,8 +5,8 @@
 ##Homework - Week 14: Node Express Handlebars
 
 This is a  restaurant app that lets users input the names of burgers they'd like to eat.
-Made with MySQL, Node, Express, Handlebars.
-Follows the MVC design pattern; uses Node and MySQL to query and route data in app, and Handlebars to generate HTML.
+Made with MySQL, Node, Express, Handlebars, Google Fonts, and Materialize.
+Uses Node and MySQL to query and route data in app, and Handlebars to generate HTML.
 
 * Whenever a user submits a burger's name, app displays the burger on the left side of the page -- waiting to be devoured.
 
