@@ -1,24 +1,38 @@
 <div class="container">
 <form method="POST" action="/create" class="button-size">
-<label for="textarea1"><h3>Order Here</h3></label>
+<label for="textarea1"><h3><i class="fa fa-paper-plane" aria-hidden="true"></i>Order Here</h3></label>
   <textarea required id="textarea1" class="materialize-textarea" type="text" name="burger"></textarea>
   <button class="waves-effect waves-light btn" type="submit">Hurry Up Fast Food</button>
 </form>
 <br>
-        {{!-- {{this.id}}. --}} 
-      
-        {{#each burgers}}
+<div class="row">
+  <div class="col s6">
+      {{#each burgers}}
+        <img class="circle" src="../../assets/images/burgerBlack.jpeg">
+          <span class="card-title"><p>Order: #{{this.id}}</p> <p>Burger: {{this.burger}} </p></span><p>Time: {{this.burger_date}}</p>
+              <form action="/delete?_method=DELETE" method="POST">
+                  <input type="hidden" name="id" value="{{this.id}}">
+                      <button class="waves-effect waves-light btn" type="submit">Devour it!</button>
+              </form>
+              {{/each}}
+    </div>
+
+<div class="col s6">
+{{#if this.devoured}}
+<h4>List of devoured</h4>
+          {{#each burgers}}
         <div class="row">
-              <img src="../../assets/images/burgerBlack.jpeg">
-                <span class="card-title"><p>{{this.burger}}</p></span>
+              <img class="circle" src="../../assets/images/burgerBlack.jpeg">
+                <span class="card-title"><p>Order: #{{this.id}}</p> <p>Burger: {{this.burger}} </p></span><p>Time: {{this.burger_date}}</p>
                     <form action="/delete?_method=DELETE" method="POST">
                         <input type="hidden" name="id" value="{{this.id}}">
                             <button class="waves-effect waves-light btn" type="submit">Devour it!</button>
                     </form>
                     </div>
           {{/each}}
-      
-
+      {{/if}}
+      </div>
+</div>
 </div>
 
 
