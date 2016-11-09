@@ -1,25 +1,26 @@
-<h1>Burgers</h1>
-
-<ul>
-  {{#each burgers}}
-    <li>
-      <p>
-        {{this.id}}. {{this.burger}}
-
-        <form action="/delete?_method=DELETE" method="POST">
-          <input type="hidden" name="id" value="{{this.id}}">
-          <button type="submit">Delete!</button>
-        </form>
-      </p>
-    </li>
-  {{/each}}
-</ul>
-
-<h2>Order A Burger Here</h2>
+<div class="container">
 <form method="POST" action="/create" class="button-size">
-	<textarea type="text" name="burger"></textarea>
-	<button type="submit">Hurry Up Fast Food</button>
+<label for="textarea1"><h3>Order Here</h3></label>
+  <textarea required id="textarea1" class="materialize-textarea" type="text" name="burger"></textarea>
+  <button class="waves-effect waves-light btn" type="submit">Hurry Up Fast Food</button>
 </form>
+<br>
+        {{!-- {{this.id}}. --}} 
+      
+        {{#each burgers}}
+        <div class="row">
+              <img src="../../assets/images/burgerBlack.jpeg">
+                <span class="card-title"><p>{{this.burger}}</p></span>
+                    <form action="/delete?_method=DELETE" method="POST">
+                        <input type="hidden" name="id" value="{{this.id}}">
+                            <button class="waves-effect waves-light btn" type="submit">Devour it!</button>
+                    </form>
+                    </div>
+          {{/each}}
+      
+
+</div>
+
 
 {{!-- <h2>Update</h2>
 <form action="/update?_method=PUT" method="POST" class="button-size">
