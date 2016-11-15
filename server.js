@@ -19,12 +19,36 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 
 var mysql      = require('mysql');
+
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : '',
   database : 'burgers_db'
 });
+
+// var source = {
+//     // localhost
+//     localhost: {
+//         port: 3306,
+//         host: 'localhost',
+//         user: 'root',
+//         password: "",
+//         database: "burgers_db"
+//     },
+
+//     // jawsDB
+//     jawsDB: {
+//         port: 3306,
+//         host: '',
+//         user: '',
+//         password: "",
+//         database: "" 
+//     }
+// }
+
+// var connection = mysql.createConnection(source.jawsDB);
+
 
 connection.connect(function(err) {
   if (err) {
